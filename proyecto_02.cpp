@@ -486,34 +486,45 @@ void registrarVenta(vector<producto> &inventario)
     // Variables (indentidades del usuario)
     string nombreCliente, apellidoCliente;
     int nacionalidad, documento;
-
-    dibujarMarco(18, 13, 70, 17);
-    gotoxy(20, 15);
+system ("cls");
+    dibujarMarco(10, 2, 55, 6);
+    gotoxy(12,4);
     cout << "          MÓDULO DE FACTURACIÓN          " << endl;
 
-    gotoxy(15, 18);
-    cout << "Ingrese nombre del cliente: ";
-    cin >> nombreCliente;
-    cout << "Ingrese apellido del cliente: ";
-    cin >> apellidoCliente;
-
+    
+    
+    while (nombreCliente.empty())
+    {
+      gotoxy(10,8);
+        cout << "Ingrese nombre del cliente: ";
+       getline (cin,nombreCliente);
+    }
+    
+    while (apellidoCliente.empty())
+    {  gotoxy(10,9);
+        cout << "Ingrese apellido del cliente: ";
+       getline (cin,apellidoCliente);
+    }
+    
+ system ("cls");
+    
     do
     {
-        gotoxy(15, 21);
+        gotoxy(10, 2);
         cout << "Indique la nacionalidad:\n1 - Venezolano\n2 - Extranjero\nOpción: ";
         cin >> nacionalidad;
 
         // Validacion de digito correcto
         if (nacionalidad != 1 && nacionalidad != 2)
         {
-            gotoxy(15, 23);
+            gotoxy(15, 9);
             cout << "Dígito incorrecto. Intente de nuevo.\n";
-            Sleep(1000);
+            Sleep(300);
             system("cls");
         }
     } while (nacionalidad != 1 && nacionalidad != 2);
-
-    gotoxy(15, 24);
+ system ("cls");
+    gotoxy(10,2);
     cout << "Indique número de documento (Cédula/Pasaporte): ";
     cin >> documento;
 
